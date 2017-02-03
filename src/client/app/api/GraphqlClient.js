@@ -1,7 +1,8 @@
 import 'babel-polyfill';
 import {get, post, put, patch} from './http';
+require("dotenv").config();
 
-const ENDPOINT = 'http://localhost:3000/graphql'; // FIXME: should use .env ?
+const ENDPOINT = process.env.RRSST_GREPHQL_ENDPOINT;
 
 export default {
 
