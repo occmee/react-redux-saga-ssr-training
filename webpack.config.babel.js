@@ -6,7 +6,7 @@ import Dotenv from 'dotenv-webpack';
 let plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-    'process.env.API_HOST': JSON.stringify(process.env.API_HOST || 'http://api.d2.miraimarche.com')
+    'process.env.API_HOST': JSON.stringify(process.env.RRSST_API_HOST || 'http://localhost:1234')
   }),
   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/),
   new Dotenv()
@@ -64,7 +64,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    port: 8008
+    port: 8234 // FIXME: dotenv より先に devServer が起動する？（process.env.RRSST_DEV_SERVER_PORT と指定したいが）
   },
   node: {
     console: true,
