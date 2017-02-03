@@ -1,13 +1,15 @@
 /* eslint-disable */
 import webpack from 'webpack';
 import path from 'path';
+import Dotenv from 'dotenv-webpack';
 
 let plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     'process.env.API_HOST': JSON.stringify(process.env.API_HOST || 'http://api.d2.miraimarche.com')
   }),
-  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/)
+  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/),
+  new Dotenv()
 ];
 if (process.env.NODE_ENV === 'production') {
   plugins = [
@@ -64,4 +66,8 @@ module.exports = {
     contentBase: './dist',
     port: 8008
   },
+  node: {
+    console: true,
+    fs: 'empty'
+  }
 };

@@ -18,7 +18,7 @@
     "db:migrate": "sequelize db:migrate",
     "common:test": "jest --testPathPattern \"src/common/.*/__tests__/.*\\.jsx?$\"",
     "client:start": "webpack-dev-server --inline --hot --host 0.0.0.0",
-    "client:build": "NODE_ENV=production webpack",
+    "client:build": "NODE_ENV=development webpack",
     "client:test": "jest --testPathPattern \"src/client/app/.*/__tests__/.*\\.jsx?$\"",
     "client:storybook": "start-storybook -p 9001 -c ./src/client/storybook"
   },
@@ -87,6 +87,7 @@
     "babel-preset-stage-3": "^6.11.0",
     "babel-runtime": "^6.11.6",
     "css-loader": "^0.25.0",
+    "dotenv-webpack": "^1.3.2",
     "eslint": "^1.4.0",
     "eslint-config-airbnb": "^5.0.0",
     "eslint-loader": "^1.1.1",
