@@ -1,0 +1,28 @@
+version: "2"
+services:
+
+  db:
+    image: mysql:5.7
+    ports:
+      - 127.0.0.1:13306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: react_redux_saga_ssr_training
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./env/db/my.cnf:/etc/mysql/conf.d/my.cnf
+
+  redis:
+    image: redis:3.2.6
+
+  mail:
+    image: yappabe/mailcatcher
+    ports:
+      - 127.0.0.1:1025:1025 # SMTP
+      - 127.0.0.1:1080:1080 # Web UI
+
+volumes:
+  mysql-data:
+    driver: local

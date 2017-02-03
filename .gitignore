@@ -1,0 +1,12 @@
+.idea
+node_modules/
+common/dist/
+common/types/
+.env
+
+build/
+
+resource/client/design
+dist/bundle.js*
+
+.vscode/temp.sql

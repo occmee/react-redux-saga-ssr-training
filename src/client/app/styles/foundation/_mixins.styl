@@ -1,0 +1,30 @@
+antialiased()
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+appearance(value)
+  -webkit-appearance: value
+  -moz-appearance: value
+  -ms-appearance: value
+  -o-appearance: value
+  appearance: value
+
+overflow-x(value)
+  overflow-x value
+  if value == scroll
+    -webkit-overflow-scrolling touch
+  else if value == auto
+    -webkit-overflow-scrolling touch
+
+overflow-y(value)
+  overflow-y value
+  if value == scroll
+    -webkit-overflow-scrolling touch
+  else if value == auto
+    -webkit-overflow-scrolling touch
+
+text-overflow(value)
+  text-overflow value
+  if value == ellipsis
+    white-space nowrap
+    overflow hidden

@@ -1,0 +1,14 @@
+.c-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: alpha(#000,  0.4);
+  opacity: 0;
+  transition: opacity 0.4s material-easing;
+
+  &.is-open {
+    opacity: 1;
+  }
+}

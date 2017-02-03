@@ -1,0 +1,9 @@
+import { Middleware } from "koa";
+
+export function <%= name %>(): Middleware {
+  return async (ctx, next) => {
+    // ルーティング前の処理
+    await next();
+    // パイプライン（アクション）実行後の処理
+  };
+}

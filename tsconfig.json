@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "sourceMap": false,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": [
+      "reflect-metadata"
+    ],
+    "rootDir": "./src/server",
+    "outDir": "./build/server"
+  },
+  "include": [
+    "src/server/**/*.ts",
+    "src/common/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/server/script/**/*.ts"
+  ]
+}

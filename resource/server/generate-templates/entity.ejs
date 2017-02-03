@@ -1,0 +1,63 @@
+
+import * as Sequelize from "sequelize";
+
+import {
+  ICommonAttributes,
+  surrogateKey,
+} from "<%= columnPath %>";
+
+export interface I<%= modelName %>Attributes extends ICommonAttributes {
+  // モデルのプロパティ（カラム）を定義
+}
+
+export interface I<%= modelName %>Instance extends Sequelize.Instance<I<%= modelName %>Attributes>, I<%= modelName %>Attributes {
+  // モデルのインスタンスメソッドのインターフェースを定義
+}
+
+export interface I<%= modelName %>Model extends Sequelize.Model<I<%= modelName %>Instance, I<%= modelName %>Attributes> {
+  // モデルの静的メソッドのインターフェースを定義
+}
+
+const <%= modelName %>Attributes: Sequelize.DefineAttributes = {
+  // プロパティの実装を定義
+};
+
+const ModelOptions: Sequelize.DefineOptions<I<%= modelName %>Instance> = {
+  tableName: "<%= modelName %>",
+  createdAt: "created_at",
+  updatedAt: "updated_at",
+  scopes: {},
+  validate: {
+    // 複数のカラムにかかるバリデーションの実装を定義
+    // example(this: <I<%= modelName %>Instance) {
+    //   if (this.attr1 && this.attr2) {
+    //     throw new Error("error message");
+    //   }
+    // },
+  },
+  instanceMethods: {
+    // インスタンスメソッドの実装を定義
+  },
+  classMethods: {
+    // 静的メソッドの実装を定義
+  },
+};
+
+export function define(sequelize: Sequelize.Sequelize) {
+  const model = sequelize.define<I<%= modelName %>Instance, I<%= modelName %>Attributes>(
+    "<%= modelName %>",
+    <%= modelName %>Attributes,
+    ModelOptions);
+  return model;
+}
+
+export function defer(sequelize: Sequelize.Sequelize) {
+  // 多対多の参照を定義
+  /*
+  const User = sequelize.model("users");
+  const Project = sequelize.model("project");
+  const UserProject = sequelize.model("user_project");
+  User.belongsToMany(Project, { through: UserProject });
+  Project.belongsToMany(User, { through: UserProject });
+  */
+}

@@ -1,0 +1,530 @@
+{
+  "//": "[ GET /projects/${projectId} ] で取得できる response json のサンプルです",
+  "project": {
+    "id": 1,
+    "title": "CRMの運用を改善する",
+    "status": "in_progress",
+    "owner": {
+      "//": "このプロジェクトを作成した人",
+      "id": 1,
+      "name": "Taro"
+    },
+    "access": {
+      "//": "policy: 'public'（誰でも見れる）/ 'private'（allowed に登録されているユーザだけ見れる）",
+      "policy": "private",
+      "allowed": [
+        {
+          "id": 1,
+          "name": "Taro"
+        },
+        {
+          "id": 2,
+          "name": "Hanako"
+        },
+        {
+          "id": 3,
+          "name": "Jiro"
+        },
+        {
+          "id": 4,
+          "name": "Saburo"
+        },
+        {
+          "id": 5,
+          "name": "Shiro"
+        }
+      ]
+    },
+    "tags": [
+      {
+        "id": 1,
+        "name": "SECOND"
+      },
+      {
+        "id": 2,
+        "name": "スマメン"
+      }
+    ],
+    "members": [
+      {
+        "id": 1,
+        "name": "Taro"
+      },
+      {
+        "id": 2,
+        "name": "Hanako"
+      }
+    ],
+    "pins": [
+      {
+        "//": "ピンされた投稿（本当は id だけ返して title 等はクライアント側で補ってほしいが、投稿数が多数になった場合に GET /projects/${projectId} で必ずしも全ての投稿（nodes）が返されるとは限らないので、冗長にはなるが一旦 pins にも title 等を含めることにする）",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "post/text",
+        "payload": {
+          "id": 1,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "title": "投稿１",
+          "body": "テキストのポストです"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "post/file",
+        "payload": {
+          "id": 9,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.pdf",
+          "url": "http://hoge.com/xxxx.pdf"
+        }
+      }
+    ],
+    "files": [
+      {
+        "//": "添付ファイル（本当は id だけ返して...）",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "post/file",
+        "payload": {
+          "id": 9,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.pdf",
+          "url": "http://hoge.com/xxxx.pdf"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "post/image",
+        "payload": {
+          "id": 5,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.jpeg",
+          "url": "http://hoge.com/xxxx.jpeg"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "comment/image",
+        "payload": {
+          "id": 3,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.jpeg",
+          "url": "http://hoge.com/xxxx.jpeg"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "comment/file",
+        "payload": {
+          "id": 4,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.pdf",
+          "url": "http://hoge.com/xxxx.pdf"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "comment/image",
+        "payload": {
+          "id": 7,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.jpeg",
+          "url": "http://hoge.com/xxxx.jpeg"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "comment/file",
+        "payload": {
+          "id": 8,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.pdf",
+          "url": "http://hoge.com/xxxx.pdf"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "comment/image",
+        "payload": {
+          "id": 11,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.jpeg",
+          "url": "http://hoge.com/xxxx.jpeg"
+        }
+      },
+      {
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "comment/file",
+        "payload": {
+          "id": 12,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.pdf",
+          "url": "http://hoge.com/xxxx.pdf"
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "//": "[post/text] テキストの投稿",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "post/text",
+        "payload": {
+          "id": 1,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "title": "投稿１",
+          "body": "テキストのポストです",
+          "like": {
+            "count": 3,
+            "byMe": true
+          }
+        },
+        "nodes":[
+          {
+            "//": "[comment/text] 投稿に対するテキストコメント（'post/text' と 'comment/text' を分けなくてもよいかもしれないが、React 側で render する際に明示的に post か comment かわかった方が便利かもなので一応分けておいた）",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/text",
+            "payload": {
+              "id": 2,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "body": "投稿１に対するテキストコメント",
+              "like": {
+                "count": 0,
+                "byMe": false
+              }
+            }
+          },
+          {
+            "//": "[comment/image] 投稿に対する画像コメント（'post/image' と 'comment/image' を分けなくてもよいかもしれないが、React 側で render する際に明示的に post か comment かわかった方が便利かもなので一応分けておいた）",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/image",
+            "payload": {
+              "id": 3,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "filename": "ファイル名.jpeg",
+              "url": "http://hoge.com/xxxx.jpeg",
+              "body": "投稿１に対する画像コメント",
+              "like": {
+                "count": 2,
+                "byMe": false
+              }
+            }
+          },
+          {
+            "//": "[comment/file] 投稿に対するファイルコメント（'post/file' と 'comment/file' を分けなくてもよいかもしれないが、React 側で render する際に明示的に post か comment かわかった方が便利かもなので一応分けておいた）",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/file",
+            "payload": {
+              "id": 4,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "filename": "ファイル名.pdf",
+              "url": "http://hoge.com/xxxx.pdf",
+              "body": "投稿１に対するファイルコメント",
+              "like": {
+                "count": 2,
+                "byMe": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "//": "[post/image] 画像の投稿（投稿されたファイルが画像かそれ以外かをクライアント側で判定できるのであれば、'post/file' で統一してしまってよいか）",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "post/image",
+        "payload": {
+          "id": 5,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.jpeg",
+          "url": "http://hoge.com/xxxx.jpeg",
+          "title": "画像１",
+          "body": "画像ファイルアップロードです",
+          "like": {
+            "count": 2,
+            "byMe": false
+          }
+        },
+        "nodes":[
+          {
+            "//": "[comment/text] 投稿に対するテキストコメント",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/text",
+            "payload": {
+              "id": 6,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "body": "画像１に対するテキストコメント",
+              "like": {
+                "count": 0,
+                "byMe": false
+              }
+            }
+          },
+          {
+            "//": "[comment/image] 投稿に対する画像コメント",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/image",
+            "payload": {
+              "id": 7,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "filename": "ファイル名.jpeg",
+              "url": "http://hoge.com/xxxx.jpeg",
+              "body": "画像１に対する画像コメント",
+              "like": {
+                "count": 2,
+                "byMe": false
+              }
+            }
+          },
+          {
+            "//": "[comment/file] 投稿に対するファイルコメント",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/file",
+            "payload": {
+              "id": 8,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "filename": "ファイル名.pdf",
+              "url": "http://hoge.com/xxxx.pdf",
+              "body": "画像１に対するファイルコメント",
+              "like": {
+                "count": 2,
+                "byMe": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "//": "[post/file] ファイル（画像以外）の投稿",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "post/file",
+        "payload": {
+          "id": 9,
+          "author": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "filename": "ファイル名.pdf",
+          "url": "http://hoge.com/xxxx.pdf",
+          "title": "ファイル１",
+          "body": "PDFファイルアップロードです",
+          "like": {
+            "count": 2,
+            "byMe": false
+          }
+        },
+        "nodes":[
+          {
+            "//": "[comment/text] 投稿に対するテキストコメント",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/text",
+            "payload": {
+              "id": 10,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "body": "ファイル１に対するテキストコメント",
+              "like": {
+                "count": 0,
+                "byMe": false
+              }
+            }
+          },
+          {
+            "//": "[comment/image] 投稿に対する画像コメント",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/image",
+            "payload": {
+              "id": 11,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "filename": "ファイル名.jpeg",
+              "url": "http://hoge.com/xxxx.jpeg",
+              "body": "ファイル１に対する画像コメント",
+              "like": {
+                "count": 2,
+                "byMe": false
+              }
+            }
+          },
+          {
+            "//": "[comment/file] 投稿に対するファイルコメント",
+            "timestamp": "2016-08-15T02:02:06.000Z",
+            "type": "comment/file",
+            "payload": {
+              "id": 12,
+              "author": {
+                "id": 1,
+                "name": "Taro"
+              },
+              "filename": "ファイル名.pdf",
+              "url": "http://hoge.com/xxxx.pdf",
+              "body": "ファイル１に対するファイルコメント",
+              "like": {
+                "count": 2,
+                "byMe": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "//": "[log/status/update] プロジェクトのステータスの変更： 'Taro さんがステータスを「実行中」に変更しました。'",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "log/status/update",
+        "payload": {
+          "doer": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "status": "in_progress"
+        }
+      },
+      {
+        "//": "[log/tag/add] プロジェクトにチーム（タグ）を追加： 'Taro さんがタグ「SECOND」を追加しました。'",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "log/tag/add",
+        "payload": {
+          "doer": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "tag": {
+            "id": 1,
+            "name": "SECOND"
+          }
+        }
+      },
+      {
+        "//": "[log/tag/remove] プロジェクトからチーム（タグ）を削除： 'Taro さんがタグ「SECOND」を削除しました。'",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "log/tag/remove",
+        "payload": {
+          "doer": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "tag": {
+            "id": 1,
+            "name": "SECOND"
+          }
+        }
+      },
+      {
+        "//": "[log/member/add] プロジェクトにメンバーを招待： 'Hanako さんがメンバーに招待されました。'",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "log/member/add",
+        "payload": {
+          "doer": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "member": {
+            "id": 2,
+            "name": "Hanako"
+          }
+        }
+      },
+      {
+        "//": "[log/member/remove] プロジェクトからメンバーを除外（自分から脱退した場合もこれで処理）： 'Hanako さんがメンバーから外れました。'",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "log/member/remove",
+        "payload": {
+          "doer": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "member": {
+            "id": 2,
+            "name": "Hanako"
+          }
+        }
+      },
+      {
+        "//": "[log/post/update] 投稿内容を変更： 'Taro さんが「投稿１」の内容を変更しました。'",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "log/post/update",
+        "payload": {
+          "doer": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "post": {
+            "id": 1,
+            "title": "投稿１"
+          }
+        }
+      },
+      {
+        "//": "[log/post/remove] 投稿内容を削除： 'Taro さんが「投稿１」を削除しました。'",
+        "timestamp": "2016-08-15T02:02:06.000Z",
+        "type": "log/post/remove",
+        "payload": {
+          "doer": {
+            "id": 1,
+            "name": "Taro"
+          },
+          "post": {
+            "id": 1,
+            "title": "投稿１"
+          }
+        }
+      }
+    ],
+    "createdAt": "2016-08-15T02:02:06.000Z",
+    "updatedAt": "2016-08-15T02:02:06.000Z"
+  }
+}

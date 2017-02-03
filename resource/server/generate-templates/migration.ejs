@@ -1,0 +1,74 @@
+
+import * as Sequelize from "sequelize";
+
+// ----------------------------------
+// ユーティリティ関数
+// ----------------------------------
+
+type QueryFunc = (queryInterface: Sequelize.QueryInterface) => void;
+
+function queryAll(queryInterface: Sequelize.QueryInterface) {
+  return (list: QueryFunc[]) => {
+    return Promise.all(list.map((fn) => fn(queryInterface)));
+  };
+}
+
+function createTable(queryInterface: Sequelize.QueryInterface) {
+  return (
+    tableName: string | { schema?: string, tableName?: string },
+    attributes: Sequelize.DefineAttributes,
+    options?: Sequelize.QueryOptions) => {
+
+    // 共通カラムを付加
+    appendCommonColumns(attributes);
+
+    return queryInterface.createTable(tableName, attributes, options);
+  };
+}
+
+<%- util %>
+// ----------------------------------
+
+// ----------------------------------
+// スキーマ定義
+// ----------------------------------
+
+function createSchema(queryInterface: Sequelize.QueryInterface) {
+  const schema = {
+    // カラム定義
+    /*
+    // 連番キーのカラムを追加
+    id: surrogateKey({ comment: "[カラムの説明]" }),
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      comment: "[カラムの説明]",
+    },
+    // 参照するカラムを追加
+    project: reference({
+      table: "projects",
+      key: "project_id",
+      comment: "[カラムの説明]",
+    }),
+    */
+  };
+  return createTable(queryInterface)("[table name]", schema);
+}
+
+// ----------------------------------
+
+/*
+ * マイグレーションファイル参考URL
+ * http://docs.Sequelizejs.com/en/latest/docs/migrations/
+ */
+export = {
+  async up(queryInterface: Sequelize.QueryInterface) {
+    const all = queryAll(queryInterface);
+    await all([
+      createSchema,
+    ]);
+  },
+  async down(queryInterface: Sequelize.QueryInterface) {
+    await queryInterface.dropTable("[table name]");
+  },
+};

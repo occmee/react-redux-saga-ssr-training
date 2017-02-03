@@ -1,0 +1,61 @@
+.c-formFullName {
+  box-sizing: border-box;
+  display: flex;
+
+  &__label {
+    width: 25%;
+    height: 44px;
+    font-size: 1em;
+    line-height: 44px;
+    text-overflow: ellipsis;
+    &.is-hidden {
+      display: none;
+    }
+    &.required {
+      &:after {
+        content: '＊';
+        margin-left: 0.4em;
+        color: red;
+        font-size: 0.8em;        
+      }
+    }
+  }
+
+  &__field {
+    flex-shrink: 0;
+    width: 75%;
+    
+    &__counter {
+
+    }
+
+    &__error {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 8px;
+
+      &__line {
+        color: red;
+        font-size: 0.8em;
+        line-height: 1.2em;
+      }
+    }
+  }
+
+  &__inputFullName {
+    display: flex;
+
+    &__first, &__last {
+      box-sizing: border-box;
+      width: 45%;
+      height: 44px;
+      border: 1px #dedddd solid;
+      padding: 0 1em;
+      font-size: 1em;
+      line-height: 44px;
+    }
+    &__first {
+      margin-left: 10%;
+    }
+  }
+}

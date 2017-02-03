@@ -1,0 +1,93 @@
+.p-betaEntry {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: #fafafa;
+
+  &__keyVisual {
+    flex-grow: 1;
+    width: 50vw;
+    height: 100vh;
+    padding: 0 7.5%;
+    box-sizing: border-box;
+    background: #ccc embedurl('../../../assets/img/register-company.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &Inner {
+      min-height: 640px;
+    }
+    &__head {
+      font-size: 2em;
+      font-weight: bold;
+      color: black;
+    }
+    &__detail {
+      font-size: 1em;
+      font-weight: bold;
+      line-height: 2em;
+      color: black;
+    }
+  }
+
+  &__contents {
+    flex-grow: 1;
+    width: 50vw;
+    height: 100vh;
+    padding: 0 7.5%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  &__notice {
+    &__head {
+      font-size: 1em;
+      font-weight: normal;
+    }
+    &__detail {
+      font-size: 1em;
+    }
+    &__list {
+      list-style-type: disc;
+      margin-top: 1em;
+      padding-left: 20px;
+      &Item {
+        padding-right: 2em;
+      }
+    }
+  }
+
+  &__form {
+    margin-top: 32px;
+  }
+  &__formItem {
+    box-sizing: border-box;
+    margin-top: 16px;
+
+    &__select {
+      width: 75%;
+      height: 44px;
+      border: 1px #dedddd solid;
+      font-size: 1em;
+    }
+    &__submit {
+      width: 75%;
+      height: 44px;
+      margin-left: 25%;
+      appearance: none;
+      border: 0;
+      font-size: 1em;
+      background: #4990E2;
+      color: white;
+      &:disabled {
+        background: lightgray;
+        color: white;
+      }
+    }
+  }
+}

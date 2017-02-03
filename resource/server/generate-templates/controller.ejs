@@ -1,0 +1,48 @@
+
+import { DIContainer } from "../di";
+import { IRoutingInfo } from "../route";
+import { BaseController } from "./index";
+import * as response from "./responses";
+
+class <%= name %>Controller extends BaseController {
+  // アクションのベースパス
+  public base() {
+    return "/<%= resource %>";
+  }
+
+  // ルーティングに登録するアクション名
+  public available() {
+    return ["get"];
+  }
+
+  // アクションにパイプラインを繋ぐ前に実行するミドルウェア
+  public before() {
+    return [];
+  }
+
+  public get(di: DIContainer): IRoutingInfo {
+    const {logger} = di;
+
+    return {
+      // APIの名前
+      name: "Sample API",
+      // APIの詳細
+      description: "ハローワールドするだけ",
+      // メソッド get or post or put or delete
+      method: "get",
+      // アクションのパス
+      // 最終的にはベースパスと組み合わせて登録される
+      // この例だと、"/sample/"になる
+      path: "/",
+      // koajsのミドルウェア（アクション）
+      // リクエストを処理して、業務ロジックを実行する。
+      async handler(ctx, next) {
+        logger.info("sample api access");
+        ctx.body = "hello world.";
+      },
+    };
+  }
+
+}
+
+export = new <%= name %>Controller();
