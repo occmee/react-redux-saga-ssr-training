@@ -8,3 +8,11 @@ export function submit(payload, resolve) {
     resolve,
   };
 }
+
+export function getBetaEntries(payload, resolve) {
+  return {
+    type: ActionTypes.QUERY_BETA_ENTRIES,
+    payload,
+    resolve
+  }
+}

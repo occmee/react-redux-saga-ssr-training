@@ -8,3 +8,5 @@ export const FETCH_LOGIN = 'FETCH_LOGIN';
 export const FETCH_LOGOUT = 'FETCH_LOGOUT';
 
 export const MUTATE_BETA_ENTRY = 'MUTATE_BETA_ENTRY';
+
+export const QUERY_BETA_ENTRIES = 'QUERY_BETA_ENTRIES';
