@@ -11,6 +11,7 @@ const Query = `
 type Query {
   hello: String
   fetchBetaEntry(id: ID!): BetaEntry
+  betaEntries: [BetaEntry]
 }
 `;
 

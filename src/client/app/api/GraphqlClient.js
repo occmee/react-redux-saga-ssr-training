@@ -12,7 +12,16 @@ export default {
    * @returns {any}
    */
   postBetaEntry: async (params) => {
-    const body = generateBetaEntryBody(params);
+    const body = generatePostBetaEntryBody(params);
+    const response = await post(ENDPOINT, body, false);
+    if (response.error) {
+      return {error: response.error};
+    }
+    return {payload: response.data};
+  },
+
+  getBetaEntries: async (params) => {
+    const body = generateBetaEntriesBody(params);
     const response = await post(ENDPOINT, body, false);
     if (response.error) {
       return {error: response.error};
@@ -26,7 +35,7 @@ export default {
  * @param params
  * @returns {{query: *, variables: {input: {}}}}
  */
-function generateBetaEntryBody(params) {
+function generatePostBetaEntryBody(params) {
   return {
     query: `
 mutation PostBetaEntry($input: BetaEntryInput) {
@@ -60,3 +69,24 @@ const defaultBetaEntryVariables = {
   businessType: "",
   rangeOfNumbers: ""
 };
+
+
+function generateBetaEntriesBody(params) {
+  return {
+    query: `
+query BetaEntries {
+  betaEntries {
+    id
+    companyName
+    applicantLastName
+    applicantFirstName
+    applicantDepartment
+    email
+    phoneNumber
+    businessType
+    rangeOfNumbers
+  }
+}`,
+    variables: {}
+  };
+}

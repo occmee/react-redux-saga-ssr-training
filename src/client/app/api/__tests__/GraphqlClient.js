@@ -16,3 +16,9 @@ test('postBetaEntry', async () => {
   const postBetaEntry = result.payload.postBetaEntry;
   expect(postBetaEntry.companyName).toBe(params.companyName);
 });
+
+test('getBetaEntries', async () => {
+  const result = await client.getBetaEntries({});
+  const betaEntries = result.payload.betaEntries;
+  expect(betaEntries).not.toBeNull();
+});
