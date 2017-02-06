@@ -10,7 +10,25 @@ export function* mutateBetaEntry(action) {
   const {payload, error} = yield call(GraphqlClient.postBetaEntry, action.payload);
   if (payload && !error) {
     yield put({
-      type: `${ActionTypes.MUTATE_BETA_ENTRY}_SUCCESS`,
+      type: `${action.type}_SUCCESS`,
+      payload
+    });
+    if (action.resolve) yield call(action.resolve, payload);
+  } else {
+    yield put({
+      type: `${ActionTypes.SHOW_ERROR}`,
+      error
+    });
+  }
+  yield put(loaded);
+}
+
+export function* getBetaEntries(action) {
+  yield put(loading);
+  const {payload, error} = yield call(GraphqlClient.getBetaEntries, action.payload);
+  if (payload && !error) {
+    yield put({
+      type: `${action.type}_SUCCESS`,
       payload
     });
     if (action.resolve) yield call(action.resolve, payload);

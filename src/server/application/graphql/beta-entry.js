@@ -10,6 +10,11 @@ function defineQuery() {
             const BetaEntry = sequelize.model("BetaEntry");
             return BetaEntry.find({ where: { id } });
         },
+        betaEntries(container, args, ctx, info) {
+            const { sequelize } = container;
+            const BetaEntry = sequelize.model("BetaEntry");
+            return BetaEntry.all();
+        },
     };
 }
 exports.defineQuery = defineQuery;

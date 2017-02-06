@@ -12,7 +12,13 @@ test('postBetaEntry', async () => {
     businessType: "lifestyle",
     rangeOfNumbers: "small1"
   };
-  const postBetaEntry = await client.postBetaEntry(params);
-  // console.log('[postBetaEntry]', postBetaEntry);
+  const result = await client.postBetaEntry(params);
+  const postBetaEntry = result.payload.postBetaEntry;
   expect(postBetaEntry.companyName).toBe(params.companyName);
+});
+
+test('getBetaEntries', async () => {
+  const result = await client.getBetaEntries({});
+  const betaEntries = result.payload.betaEntries;
+  expect(betaEntries).not.toBeNull();
 });
