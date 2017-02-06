@@ -2,16 +2,22 @@ import * as _ from 'lodash';
 import {ActionTypes} from '../constants';
 
 const initialState = {
-  betaEntries: [],
+  betaEntry: {},
+  betaEntries: []
 };
 
 
-export default function Loading(state = initialState, action) {
+export default function Payload(state = initialState, action) {
   switch (action.type) {
-    case `${ActionTypes.QUERY_BETA_ENTRIES}`:
+    case `${ActionTypes.POST_BETA_ENTRIES}_SUCCESS`:
       return {
         ...state,
-        betaEntries: action.payload.betaEntries,
+        betaEntry: action.payload.postBetaEntry
+      };
+    case `${ActionTypes.QUERY_BETA_ENTRIES}_SUCCESS`:
+      return {
+        ...state,
+        betaEntries: action.payload.betaEntries
       };
     default:
       return state;

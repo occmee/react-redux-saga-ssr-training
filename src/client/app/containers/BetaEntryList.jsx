@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {BetaEntryList} from '../components/BetaEntryList';
+import {BetaEntryList} from '../components/betaEntry';
 import {ViewActions, BetaEntryActions} from '../actions';
 
 export default connect(state => {

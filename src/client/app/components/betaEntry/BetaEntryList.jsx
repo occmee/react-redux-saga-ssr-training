@@ -3,6 +3,7 @@ import React, {Component, PropTypes} from 'react';
 class BetaEntryList extends Component {
   constructor(props) {
     super(props);
+    this.props.betaEntryActions.getBetaEntries();
   }
 
   _renderBetaEntry(betaEntry) {
@@ -12,7 +13,8 @@ class BetaEntryList extends Component {
   }
 
   render() {
-    const {betaEntries} = this.props;
+    const {payload} = this.props;
+    const betaEntries = payload.betaEntries || [];
 
     return (
       <ul>
@@ -23,7 +25,8 @@ class BetaEntryList extends Component {
 }
 
 BetaEntryList.propTypes = {
-  betaEntries: PropTypes.array
+  betaEntryActions: PropTypes.object,
+  payload: PropTypes.object
 };
 
 export default BetaEntryList;
